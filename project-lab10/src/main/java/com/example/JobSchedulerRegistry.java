@@ -10,7 +10,7 @@ public class JobSchedulerRegistry extends Thread{
      * Blok statyczny pozwala no inicjację pól statycznych
      */
     static{
-        instance=new JobSchedulerRegistry();
+        instance = new JobSchedulerRegistry();
     }
 
     private JobSchedulerRegistry(){}
