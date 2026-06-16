@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 public class SimpleJobScheduler implements JobScheduler {
     private Job job;
     private int timeInterval = 1;
-    private int repeatCount;
+    private int repeatCount = 1;
+    private int counter = 0;
     private LocalDateTime startTime =  LocalDateTime.now();
 
     @Override
@@ -36,6 +37,8 @@ public class SimpleJobScheduler implements JobScheduler {
     public void listenTo(TimeEvent event) {
         if (job == null) return;
         if (startTime.isAfter(event.getTime())) return;
+        if (repeatCount <= counter) return;
+        counter++;
         startTime = startTime.plusSeconds(timeInterval);
         new JobThread(job).start();
     }
