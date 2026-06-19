@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class TimeEvent {
 
-    LocalDateTime time;
+    private LocalDateTime time;
 
     public void setTime(LocalDateTime time) {
         this.time=time;
